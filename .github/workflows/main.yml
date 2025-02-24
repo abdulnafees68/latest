@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,15 +16,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 16  # Adjust Node.js version here if needed
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build Angular app to prod
-        working-directory: final-pro
-        run: npm install && npm run build:prod
+        working-directory: final-pro  # Make sure the working directory is correct
+        run: npm run build --prod  # or npm run build:prod
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: final-pro/dist/final-pro/browser/
-          branch: prod  
+          folder: final-pro/dist/final-pro/  # Ensure this points to the correct folder
+          branch: prod
           token: ${{ secrets.GH_TOKEN1 }}
