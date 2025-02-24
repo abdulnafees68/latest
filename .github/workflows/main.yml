@@ -17,13 +17,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build Angular app to prod
-        working-directory: final-pro
-        run: npm install && npm run build:prod
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app for production
+        run: npm run build -- --configuration=production  # Update to use configuration flag
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: final-pro/dist/final-pro/browser/
-          branch: prod  
+          folder: dist/your-app-name/  # Make sure to replace this with the correct path
+          branch: prod
           token: ${{ secrets.GH_TOKEN1 }}
