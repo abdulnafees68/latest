@@ -1,0 +1,9 @@
+title: Your Site's Title
+description: A description of your site
+exclude:
+  - node_modules
+  - .git
+  - .github
+  - .DS_Store
+  - npm-debug.log
+
