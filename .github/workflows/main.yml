@@ -26,6 +26,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/your-app-name/  # Make sure to replace this with the correct path
+          folder: /final-pro/dist/final-pro/  # Make sure to replace this with the correct path
           branch: prod
           token: ${{ secrets.GH_TOKEN1 }}
